@@ -49,3 +49,44 @@ int get_date_minutes(int date) {
 int date_to_int(date_t date) {
 	return date.year * 10000 + date.month * 100 + date.day; 
 }
+
+date_t date_from_int(int number) {
+	date_t res;
+	int year = number/10000;
+	int monthday = number - year*10000;
+	int month = monthday / 100;
+	int day = monthday - month*100;
+
+	res.year = year;
+	res.month = month;
+	res.day = day;
+	return res;
+}
+
+void print_month(int month) {
+	switch(month) {
+		case 1: printf("  January");break;
+		case 2: printf(" February");break;
+		case 3: printf("    March");break;
+		case 4: printf("    April");break;
+		case 5: printf("      May");break;
+		case 6: printf("     June");break;
+		case 7: printf("     July");break;
+		case 8: printf("   August");break;
+		case 9: printf("September");break;
+	    case 10: printf("  October");break;
+	    case 11: printf(" November");break;
+	    case 12: printf(" December");break;
+		default: printf("--------");
+	}
+}
+
+
+void print_date(date_t date) { 
+	printf("%02d ", date.day);
+	print_month(date.month);
+	printf(" %04d", date.year);
+
+}
+
+

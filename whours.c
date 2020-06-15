@@ -9,7 +9,8 @@
 #include "show.h"
 
 int main(void) {
-	printf("| WBot> Enter a command (type 'help' for more information).\n");
+	print_line();
+	printf("| Bot> Enter a command (type 'help' for more information).\n");
 	char command[MAX_STR_SIZE];
 	command_t cmd = none;
 	FILE* f_time = fopen(FILE_TIME, "r");
@@ -53,6 +54,6 @@ int main(void) {
         	cmd = parse_string(command);
     	} while(cmd == none);
 	}
-	
+	print_line();
 	return 0;
 }

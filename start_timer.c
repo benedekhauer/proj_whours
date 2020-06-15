@@ -6,13 +6,13 @@
 void proc_strt(void) {
 	FILE* f_start = fopen(FILE_START, "r");
 	if(f_start != NULL) {
-		printf("| WBot> The previous timer hasn't been stopped yet.\n");	
+		printf("| Bot> The previous timer hasn't been stopped yet.\n");	
 		fclose(f_start);
 	}
 	else {
 		FILE* f_time = fopen(FILE_TIME, "r");
 		if(f_time == NULL) {
-			fprintf(stderr, "| WBot> A file is missing.\n");
+			fprintf(stderr, "| Bot> A file is missing.\n");
 			return;
 		}
 		f_time = fopen(FILE_TIME, "a");
@@ -25,6 +25,6 @@ void proc_strt(void) {
 		fprintf(f_start, "%d", get_nb_mins(get_time()));
 		fclose(f_start);
 		fclose(f_time);
-		printf("| WBot> The timer has been started. You can savely exit the program.\n");
+		printf("| Bot> The timer has been started. You can savely exit the program.\n");
 	}
 }

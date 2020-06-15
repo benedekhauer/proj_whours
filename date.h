@@ -18,3 +18,9 @@ int get_date_minutes(int);
 int date_to_int(date_t);
 
 int date_to_days(date_t);
+
+date_t date_from_int(int);
+
+void print_month(int);
+
+void print_date(date_t);

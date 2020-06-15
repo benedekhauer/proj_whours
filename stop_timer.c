@@ -7,7 +7,7 @@
 void proc_stop(void) {
 	FILE* f_start = fopen(FILE_START, "r");
 	if(f_start == NULL) {
-		printf("| WBot> The timer has not been started yet.\n");
+		printf("| Bot> The timer has not been started yet.\n");
 		return;
 	}
 	
@@ -24,5 +24,5 @@ void proc_stop(void) {
 		write_no_new_day(total_work);
 	}
 	remove(FILE_START);
-	printf("| WBot> The timer has been stopped. You can safely quit the program.\n");
+	printf("| Bot> The timer has been stopped. You can safely quit the program.\n");
 }

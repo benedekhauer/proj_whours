@@ -1,10 +1,11 @@
 #include "show.h"
 #include "util.h"
 #include <stdio.h>
+#include "show_helpers.h"
 
 void proc_show(void) {
 	FILE* f_time = fopen(FILE_TIME, "r");
-	if(f_time == NULL) {fprintf(stderr, "A file is missing.\n");return;}
+	if(f_time == NULL) {fprintf(stderr, "| Bot> A file is missing.\n");return;}
 	double line_count = 0;
 	char line[MAX_STR_SIZE];
 	while(!feof(f_time)) {
@@ -15,7 +16,7 @@ void proc_show(void) {
 	fclose(f_time);
 	double total_minutes = 0;
 	f_time = fopen(FILE_TIME, "r");
-	if(feof(f_time)) {printf("| WBot> You have not worked at all yet.\n");return;}
+	if(feof(f_time) || line_count == 0) {printf("| Bot> You have not worked at all yet.\n");return;}
 	int line_date;
 	double line_mins;
 	char useless_chars[MAX_STR_SIZE];
@@ -27,6 +28,8 @@ void proc_show(void) {
 		total_minutes += line_mins;
 	}
 
-	printf("| WBot> You work on average %.2lf minutes on working days.\n", total_minutes/line_count);
+	print_list();
+	
+	printf("| Bot> You work on average %.2lf minutes on working days.\n", total_minutes/line_count);
 
 }
