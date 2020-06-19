@@ -24,3 +24,9 @@ date_t date_from_int(int);
 void print_month(int);
 
 void print_date(date_t);
+
+bool_t is_leap(int);
+
+int days_since_20200101(date_t);
+
+int day_diff(date_t, date_t);

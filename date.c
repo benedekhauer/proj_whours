@@ -65,19 +65,19 @@ date_t date_from_int(int number) {
 
 void print_month(int month) {
 	switch(month) {
-		case 1: printf("  January");break;
+		case 1: printf(" January ");break;
 		case 2: printf(" February");break;
-		case 3: printf("    March");break;
-		case 4: printf("    April");break;
-		case 5: printf("      May");break;
-		case 6: printf("     June");break;
-		case 7: printf("     July");break;
-		case 8: printf("   August");break;
+		case 3: printf("  March  ");break;
+		case 4: printf("  April  ");break;
+		case 5: printf("   May   ");break;
+		case 6: printf("   June  ");break;
+		case 7: printf("   July  ");break;
+		case 8: printf(" August  ");break;
 		case 9: printf("September");break;
-	    case 10: printf("  October");break;
+	    case 10: printf(" October ");break;
 	    case 11: printf(" November");break;
 	    case 12: printf(" December");break;
-		default: printf("--------");
+		default: printf("---------");
 	}
 }
 
@@ -89,4 +89,46 @@ void print_date(date_t date) {
 
 }
 
+bool_t is_leap(int year) {
+	return (year % 4 == 0) ? TRUE : FALSE;
+}
 
+int days_since_20200101(date_t d) {
+	int d_total_days = d.day;
+
+	for(int i = 2020; i < d.year; i++) {
+		if(is_leap(i) == TRUE) {
+			d_total_days += 366;
+		}
+		else {
+			d_total_days += 365;
+		}
+	}
+
+	switch(d.month) {
+		case 12: d_total_days += 30;
+		case 11: d_total_days += 31;
+		case 10: d_total_days += 30;
+		case 9: d_total_days += 31;
+		case 8: d_total_days += 31;
+		case 7: d_total_days += 30;
+		case 6: d_total_days += 31;
+		case 5: d_total_days += 30;
+		case 4: d_total_days += 31;
+		case 3: d_total_days += (is_leap(d.year) == TRUE) ? 29 : 28;
+		case 2: d_total_days += 31;
+		case 1: d_total_days += 0;
+		default: d_total_days += 0;
+	}
+
+	return d_total_days;
+
+}
+
+
+int day_diff(date_t d1, date_t d2) {
+	int d1days = days_since_20200101(d1);
+	int d2days = days_since_20200101(d2);
+	
+	return (d1days > d2days) ? 1 + d1days-d2days : 1 + d2days - d1days;
+}

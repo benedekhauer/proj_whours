@@ -10,6 +10,7 @@
 
 int main(void) {
 	print_line();
+	print_timer_status();
 	printf("| Bot> Enter a command (type 'help' for more information).\n");
 	char command[MAX_STR_SIZE];
 	command_t cmd = none;

@@ -16,3 +16,5 @@ typedef int bool_t;
 void correct(char[]);
 
 void print_line(void);
+
+void print_timer_status(void);

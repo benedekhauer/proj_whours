@@ -13,3 +13,14 @@ void correct(char str[]) {
 
 void print_line(void) {
 	printf("| -------------------------------------------------------------------------\n");}
+
+void print_timer_status(void) {
+	FILE* f_start = fopen(FILE_START, "r");
+	if(f_start == NULL) {
+		printf("| Bot> Timer status: stopped.\n");
+	}
+	else {
+		fclose(f_start);
+		printf("| Bot> Timer status: running...\n");
+	}
+}
