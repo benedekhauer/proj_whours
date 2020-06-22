@@ -22,7 +22,11 @@ void print_list(void) {
 		printf("| #   ");
 		print_date(real_date);
 		printf(": ");
-		printf("%-3d minutes        #\n", line_minutes);
+
+		int hours = line_minutes/60;
+		int minutes = line_minutes%60;
+
+		printf("%02d:%02d (%3d mins)   #\n", hours, minutes, line_minutes);
 	}
 	printf("| ###########################################\n");
 }

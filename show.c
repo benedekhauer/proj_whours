@@ -33,7 +33,7 @@ void proc_show(void) {
 
 	print_list();
 	fclose(f_time);
-	printf("| Bot> You work on average %d:%d on working days.\n", hours, minutes);
+	printf("| Bot> You work on average %d:%02d on working days.\n", hours, minutes);
 	f_time = fopen(FILE_TIME, "r");
 	int first_date;
 	date_t last_date = get_date();
@@ -43,6 +43,6 @@ void proc_show(void) {
 	int diff = day_diff(fd, last_date);
 	int tot_hours = (total_minutes/diff)/60;
 	int tot_minutes = (total_minutes/diff)%60;
-	printf("| Bot You have worked in average %d:%d per day since your first working day.\n", tot_hours, tot_minutes); 
+	printf("| Bot You have worked in average %d:%02d per day since your first working day.\n", tot_hours, tot_minutes); 
 
 }

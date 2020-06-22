@@ -12,7 +12,7 @@ void correct(char str[]) {
 
 
 void print_line(void) {
-	printf("| -------------------------------------------------------------------------\n");}
+	printf("| ---------------------------------------------------------------------------\n");}
 
 void print_timer_status(void) {
 	FILE* f_start = fopen(FILE_START, "r");
