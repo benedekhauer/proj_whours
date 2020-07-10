@@ -7,10 +7,10 @@
 #include "start_timer.h"
 #include "stop_timer.h"
 #include "show.h"
+#include "status.h"
 
 int main(void) {
 	print_line();
-	print_timer_status();
 	printf("| Bot> Enter a command (type 'help' for more information).\n");
 	char command[MAX_STR_SIZE];
 	command_t cmd = none;
@@ -33,12 +33,16 @@ int main(void) {
 				proc_help();
 				print_line();
 				break;
-			case strt:
+			case start:
 				proc_strt();
 				print_line();
 				break;
 			case stop:
 				proc_stop();
+				print_line();
+				break;
+			case status:
+				proc_stat();
 				print_line();
 				break;
 			case show:

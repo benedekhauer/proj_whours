@@ -2,8 +2,9 @@
 
 
 typedef enum {
-	strt,
+	start,
 	stop,
+	status,
 	show,
 	quit,
 	help,

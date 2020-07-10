@@ -17,10 +17,10 @@ void print_line(void) {
 void print_timer_status(void) {
 	FILE* f_start = fopen(FILE_START, "r");
 	if(f_start == NULL) {
-		printf("| Bot> Timer status: stopped.\n");
+		printf("| Bot> Timer status: STOPPED\n");
 	}
 	else {
 		fclose(f_start);
-		printf("| Bot> Timer status: running...\n");
+		printf("| Bot> Timer status: RUNNING\n");
 	}
 }

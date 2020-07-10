@@ -43,6 +43,6 @@ void proc_show(void) {
 	int diff = day_diff(fd, last_date);
 	int tot_hours = (total_minutes/diff)/60;
 	int tot_minutes = (total_minutes/diff)%60;
-	printf("| Bot You have worked in average %d:%02d per day since your first working day.\n", tot_hours, tot_minutes); 
+	printf("| Bot> You have worked in average %d:%02d per day since your first working day.\n", tot_hours, tot_minutes); 
 
 }
