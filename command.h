@@ -6,6 +6,7 @@ typedef enum {
 	stop,
 	status,
 	show,
+	showall,
 	quit,
 	help,
 	none

@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include "start_timer.h"
 #include "stop_timer.h"
+#include "showall.h"
 #include "show.h"
 #include "status.h"
 
@@ -47,6 +48,10 @@ int main(void) {
 				break;
 			case show:
 				proc_show();
+				print_line();
+				break;
+			case showall:
+				proc_showall();
 				print_line();
 
 			default: break;
