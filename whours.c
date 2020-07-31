@@ -53,7 +53,6 @@ int main(void) {
 			case showall:
 				proc_showall();
 				print_line();
-
 			default: break;
 		}
 

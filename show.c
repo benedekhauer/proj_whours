@@ -19,7 +19,7 @@ void proc_show(void) {
 		return;
 	}
 
-	if(date_exists(today) == FALSE) {
+	if(date_exists(today) == FALSE || get_date_minutes(today) == 0) {
 		printf("| Bot> You have not worked yet today.\n");
 		return;
 	}

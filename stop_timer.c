@@ -23,6 +23,7 @@ void proc_stop(void) {
 	else {
 		write_no_new_day(total_work);
 	}
+	time_type now = get_time();
 	remove(FILE_START);
-	printf("| Bot> The timer has been stopped. You can safely quit the program.\n");
+	printf("| (%02d:%02d) Bot> Timer STOPPED.\n", now.hours, now.minutes);
 }

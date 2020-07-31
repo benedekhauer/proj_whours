@@ -25,6 +25,8 @@ void proc_strt(void) {
 		fprintf(f_start, "%d", get_nb_mins(get_time()));
 		fclose(f_start);
 		fclose(f_time);
-		printf("| Bot> The timer has been started. You can savely exit the program.\n");
+		time_type now = get_time();
+		
+		printf("| (%02d:%02d) Bot> Timer STARTED.\n", now.hours, now.minutes);
 	}
 }

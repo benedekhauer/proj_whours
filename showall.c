@@ -21,15 +21,20 @@ void proc_showall(void) {
 	int line_date;
 	int line_mins;
 	char useless_chars[MAX_STR_SIZE];
+	int max_mins = 0;
 	while(!feof(f_time)) {
 		fscanf(f_time, "%d", &line_date);
 		if(feof(f_time)) {break;}
 		fscanf(f_time, "%d", &line_mins);
+		if(line_mins > max_mins) {max_mins = line_mins;}
 		fgets(useless_chars, MAX_STR_SIZE, f_time);
 		total_minutes += line_mins;
 	}
 	int hours = (total_minutes/line_count)/60;
 	int minutes = (total_minutes/line_count)%60;
+
+	int max_hours = max_mins/60;
+	int max_minutes = max_mins%60;
 
 	print_list();
 	fclose(f_time);
@@ -44,5 +49,5 @@ void proc_showall(void) {
 	int tot_hours = (total_minutes/diff)/60;
 	int tot_minutes = (total_minutes/diff)%60;
 	printf("| Bot> You have worked in average %d:%02d per day since your first working day.\n", tot_hours, tot_minutes); 
-
+	printf("| Bot> Your max work in one day is %d:%02d.\n", max_hours, max_minutes);
 }
