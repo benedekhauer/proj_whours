@@ -29,6 +29,7 @@ bool_t date_exists(int date) {
 		fgets(useless_line, MAX_STR_SIZE, file);
 		if(currentDate == date) {return TRUE;}
 	}
+	return FALSE;
 }	
 
 int get_date_minutes(int date) {

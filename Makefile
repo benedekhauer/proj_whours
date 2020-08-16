@@ -19,7 +19,12 @@ util.o: util.c util.h
 whours.o: whours.c command.h date.h util.h help.h time.h start_timer.h \
  stop_timer.h show.h showall.h status.h
 
-
+libso: whours.c command.c date.c help.c showall.c showall_helpers.c \
+ show.c start_timer.c status.c stop_timer.c stop_timer_helpers.c time.c \
+ util.c
+	@gcc -c -Wall -Werror -fpic *.c 
+	@gcc -shared -o libwork.so *.o
+	@echo Shared library created
 
 clean: 
 	rm *.o whours
